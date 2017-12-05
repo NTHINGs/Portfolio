@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { LandingAnimationComponent } from './landing-animation/landing-animation.component';
+import { WireframeComponent } from './wireframe/wireframe.component';
+import { LandingComponent } from './landing/landing.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingAnimationComponent
+    WireframeComponent,
+    LandingComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LandingAnimationComponent } from './landing-animation.component';
+import { WireframeComponent } from './wireframe.component';
 
-describe('LandingAnimationComponent', () => {
-  let component: LandingAnimationComponent;
-  let fixture: ComponentFixture<LandingAnimationComponent>;
+describe('WireframeComponent', () => {
+  let component: WireframeComponent;
+  let fixture: ComponentFixture<WireframeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LandingAnimationComponent ]
+      declarations: [ WireframeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LandingAnimationComponent);
+    fixture = TestBed.createComponent(WireframeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
