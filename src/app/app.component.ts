@@ -8,6 +8,7 @@ import {Component} from '@angular/core';
 export class AppComponent {
   loaded = false;
   show(loaded) {
+    console.log(loaded);
     this.loaded = loaded;
   }
 }

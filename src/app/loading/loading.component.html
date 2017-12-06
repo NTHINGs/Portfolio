@@ -1,18 +1,12 @@
 <div class="container"
      [@state]="state"
-     (@state.done)="animationDone()">
+     (@state.done)="animationDone($event)">
   <div class="row align-items-center">
     <div class="col-12">
+      <a class="tomato" href="#" (click)="toggleState()">Skip</a>
+      <br>
       <span class="tomato">></span>
       <span id="command" class="tomato"></span>
-      <div *ngIf="typingEnds" class="ascii-art tomato">
-        ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
-        ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
-        ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗
-        ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝
-        ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
-         ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
-      </div>
     </div>
   </div>
 </div>

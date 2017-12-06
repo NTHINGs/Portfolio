@@ -30,14 +30,12 @@ export class WireframeComponent implements OnInit {
 
     const materialWhite = new THREE.MeshBasicMaterial({
       color: 0xaaaaaa,
-      wireframe: true,
-      wireframeLinewidth: 10
+      wireframe: true
     });
 
     const materialRed = new THREE.MeshBasicMaterial({
       color: 0xff6347,
-      wireframe: true,
-      wireframeLinewidth: 0.5
+      wireframe: true
     });
 
     // create a white box and a red box then add it to the scene

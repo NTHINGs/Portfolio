@@ -14,3 +14,8 @@ canvas {
 .typed-cursor {
   color: tomato!important;
 }
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
+  font-size: 0.7em;
+}

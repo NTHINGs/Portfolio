@@ -2,10 +2,6 @@
   color: tomato;
   font-family: "lucida console";
 }
-.ascii-art {
-  font-family: monospace;
-  white-space: pre;
-}
 .row{
   height:100vh;
 }

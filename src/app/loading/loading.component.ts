@@ -1,3 +1,4 @@
+// Component done thanks to https://www.mattboldt.com/typed.js/
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {trigger, state, style, animate, transition} from '@angular/animations';
 import Typed from 'typed.js';
@@ -11,7 +12,7 @@ import Typed from 'typed.js';
       state('inactive', style({
         opacity: 0
       })),
-      state('active',   style({
+      state('active', style({
         opacity: 1
       })),
       transition('active => inactive', animate('1000ms ease-out'))
@@ -19,7 +20,6 @@ import Typed from 'typed.js';
   ]
 })
 export class LoadingComponent implements OnInit {
-  typingEnds = false;
   state = 'active';
   @Output()
   finish = new EventEmitter();
@@ -29,19 +29,30 @@ export class LoadingComponent implements OnInit {
 
   ngOnInit() {
     const typed = new Typed('#command', {
-      strings: ['run portafolio^500 `</br>Installing components...` ^1000 `</br>Fetching from source...` ^2000 `</br>Building...` ^3000'],
+      strings: ['run portafolio^500 `</br>Installing components...` ^1000 `</br>Fetching from source...` ^2000 `</br>Building...` ^3000 ',
+        '`<div class="ascii-art">`' +
+        '`██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗\n`' +
+        '`██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝\n`' +
+        '`██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  \n`' +
+        '`██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  \n`' +
+        '`╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗\n`' +
+        '` ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝\n`' +
+        '`</div>` ^500'],
       typeSpeed: 50,
       onComplete: (self) => {
-        this.typingEnds = true;
-        setTimeout(() => {
-          this.state = this.state === 'active' ? 'inactive' : 'active';
-        }, 2000);
+        this.toggleState();
       }
     });
   }
 
-  animationDone() {
-    this.finish.emit(this.typingEnds);
+  animationDone(event) {
+    if (event.fromState !== 'void') {
+      this.finish.emit(true);
+    }
+  }
+
+  toggleState() {
+    this.state = this.state === 'active' ? 'inactive' : 'active';
   }
 
 }
