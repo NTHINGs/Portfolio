@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - 8.5.0
 script:
-  - "ng build --prod --base-href '/Portfolio/' --deploy-url '/Portfolio/'"
+  - "ng build --prod --base-href 'https://nthings.github.io/Portfolio/'"
   - "ngh --repo=https://GH_TOKEN@github.com/NTHINGs/Portfolio.git --no-silent"
 env:
   global:
