@@ -4,3 +4,6 @@ node_js:
 script:
   - "ng build --prod"
   - "ngh --no-silent"
+env:
+  global:
+  - secure: "Mj+Rm0FQAdcv8hSJpDNG8+k5GMlCSp5A3NoO/rs8R+vD0nqFC8E9hP1kdasD1vOud7V01+SEGPUSJkDX3exPLRP6fm9PoB3YdiLl/3b54ZANxeVby/HL6XliNBO5e1ZkYPABAKIgHodJvvqPC8of8kMXcTCqyRecDN7v688SkjdE3kiNwPt//uYMBo1aIdw7hb47XpTfvlEjYnNE4j3qsEvRYD+1eLkFQhCBsKMuBSXrecG1jliTDGWyPkl6QyrWIvgRungRJH6+xgnseZaeiBMN+2ADrAoiD42FXnuTFzscsCLOJZwmCTcCsVtuUgeZjJzena68DpMErD2n5uedZlenZPGDLk8T/UQoRZ3NyUtdEUDLc+XK11SASWTKl/WClweACgut3KOwrwrT2LZngk9ZsnBHjicUHv22rd31Vssa4UJSumaM/8FGnx5zvmVwm6saqUo31qwuUtJtku4/38YQb5TLAB5jIQuGnZHnUIH3TPkOmCpwBEVp7qW0aRtWZXET7kGhe3YhsXQY54qjESqs3x1zAwbJCzDuYL1RwdqsALx71Dq+FVioDTPVXOpqqn14WLs5rIJ7d64krwMpAKR5vyFs5RugbjneVAeifYAe+g/9jWdwj1w64y1gFo6NTdoZw1AKLsNLaoCkANvIfxVm7yb5eoNJrC8HUSHbuDE="
