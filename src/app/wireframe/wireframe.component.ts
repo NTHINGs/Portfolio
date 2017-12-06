@@ -11,6 +11,7 @@ export class WireframeComponent implements OnInit {
   constructor() {
   }
 
+  // Ugly JavaScript
   ngOnInit() {
     // create the scene
     const scene = new THREE.Scene();
@@ -29,17 +30,19 @@ export class WireframeComponent implements OnInit {
 
     const materialWhite = new THREE.MeshBasicMaterial({
       color: 0xaaaaaa,
-      wireframe: true
+      wireframe: true,
+      wireframeLinewidth: 10
     });
 
     const materialRed = new THREE.MeshBasicMaterial({
       color: 0xff6347,
-      wireframe: true
+      wireframe: true,
+      wireframeLinewidth: 0.5
     });
 
     // create a white box and a red box then add it to the scene
-    const box = new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10), materialWhite);
-    const box2 = new THREE.Mesh(new THREE.BoxGeometry(15, 15, 15), materialRed);
+    const box = new THREE.Mesh(new THREE.BoxGeometry(15, 15, 10), materialWhite);
+    const box2 = new THREE.Mesh(new THREE.BoxGeometry(15, 15, 10), materialRed);
 
     scene.add(box);
     scene.add(box2);
@@ -55,31 +58,38 @@ export class WireframeComponent implements OnInit {
 
     camera.lookAt(scene.position);
 
+    animate();
+
+    window.addEventListener('resize', onWindowResize, false);
+
+    const mouse = {x: 0, y: 0};
+    document.addEventListener('mousemove', onMouseMove, false);
+
     function animate(): void {
       requestAnimationFrame(animate);
       render();
     }
 
     function render(): void {
-      const timer = 0.0001 * Date.now();
-      box.position.y = 0.05 + 0.05 * Math.sin(timer);
-      box.rotation.x += 0.01;
-      box2.position.y = -(0.05 + 0.05 * Math.sin(timer));
-      box2.rotation.x += -(0.01);
       renderer.render(scene, camera);
     }
 
-    animate();
-
-    window.addEventListener('resize', onWindowResize, false);
-
-    function onWindowResize() {
+    function onWindowResize(event) {
 
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
 
       renderer.setSize(window.innerWidth, window.innerHeight);
 
+    }
+
+    function onMouseMove(event) {
+      // Update the mouse variable
+      event.preventDefault();
+      mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      box.position.copy(new THREE.Vector3(mouse.x, mouse.y, 0.5));
+      box2.position.copy(new THREE.Vector3(-mouse.x, -mouse.y, 0.5));
     }
   }
 

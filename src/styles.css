@@ -11,3 +11,6 @@ canvas {
   left: 0;
   z-index: -9999;
 }
+.typed-cursor {
+  color: tomato!important;
+}

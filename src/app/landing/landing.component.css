@@ -1,7 +1,18 @@
-header{
+header {
   width: 100vw;
   height: 100vh;
 }
-header .row{
-  height:100%;
+
+header .row {
+  height: 100%;
+}
+
+.scrolldown {
+  background-color: tomato;
+  color: whitesmoke;
+  font-size: 3em;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  text-align: center;
 }
